@@ -34,15 +34,15 @@ class _SliderAniState extends State<SliderAni> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: SizedBox(
-          child: SliderAniContent(
-            pageController: pageController,
-            currentPageValue: _currentPageValue,
-            scaleFactor: _scaleFactor,
-            height: _height,
-          ),
-        ),
+      child: SizedBox(
+      child: SliderAniContent(
+      pageController: pageController,
+      currentPageValue: _currentPageValue,
+      scaleFactor: _scaleFactor,
+      height: _height,
       ),
+    ),)
+    ,
     );
   }
 }
@@ -63,13 +63,13 @@ class SliderAniContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
         Column(
           children: [
             Container(
               margin: EdgeInsets.only(top: 60.0, left: 10.0),
-              child: Text(
+              child: const Text(
                 "Slider Amimation",
                 style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               ),
@@ -78,7 +78,9 @@ class SliderAniContent extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            height: double.infinity,
+            height: 300,
+            // width: 1000,
+            margin: EdgeInsets.only(bottom: 100.0, top: 20.0),
             child: PageView.builder(
               itemCount: 5,
               controller: pageController,
@@ -118,17 +120,16 @@ class SliderAniContent extends StatelessWidget {
     return Transform(
       transform: matrix4,
       child: Container(
-        width: 200,
         margin: EdgeInsets.only(
             left: 10, right: 10),
         // This margin use for space between two slider.
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(30),
-            color: index.isEven ? const Color(0xFF69c5df) : Colors.blue,
-            image: DecorationImage(
-              image: NetworkImage("https://unsplash.com/photos/pancakes-with-strawberries-and-blueberries-on-top-yxZSAjyToP4"),
-              fit: BoxFit.cover,
-            )),
+          borderRadius: BorderRadius.circular(30),
+          color: index.isEven ? const Color(0xFF69c5df) : Colors.blue,
+          image: const DecorationImage(
+            image: AssetImage("assets/images/img_1.jpg"),
+            fit: BoxFit.cover,
+          )),
       ),
     );
   }
